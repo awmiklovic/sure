@@ -6,7 +6,8 @@
     },
     "extends": [
         "plugin:react/recommended",
-        "airbnb"
+        "airbnb",
+        "plugin:@typescript-eslint/recommended"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -20,9 +21,10 @@
         "react",
         "@typescript-eslint"
     ],
+    "ignorePatterns": ["src/reportWebVitals.ts"],
     "rules": {
         "no-use-before-define": "off",
-        "@typescript-eslint/no-use-before-define": ["error"],
+        "@typescript-eslint/no-use-before-define": ["off"],
         "react/jsx-filename-extension": [ "warn", {"extensions": [".tsx"]} ],
         "import/extensions": [
             "error",
@@ -31,7 +33,11 @@
                 "ts": "never",
                 "tsx": "never"
             }
-        ]
+        ],
+        "@typescript-eslint/no-empty-interface": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "react/require-default-props": "off",
+        "camelcase": "off"
     },
     "settings": {
         "import/resolver": {
