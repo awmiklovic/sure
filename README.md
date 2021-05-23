@@ -6,6 +6,7 @@ This is my solution for the Sure Frontend Technical Challenge. [Live Demo](https
 
 ```
 git clone https://github.com/awmiklovic/sure.git
+cd sure
 npm ci
 npm start
 ```
