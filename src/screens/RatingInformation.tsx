@@ -107,15 +107,15 @@ const RatingInformation = (props: Props) => {
 export default RatingInformation;
 
 export const Button = styled.button`
-  color: white;
-  font-size: 16px;
-  text-transform: uppercase;
-  font-weight: 600;
   background: #086375;
   border-radius: 3px;
   border: none;
+  color: white;
   cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
   padding: 15px;
+  text-transform: uppercase;
   width: 100%;
   &: hover {
     background: #086375BB;

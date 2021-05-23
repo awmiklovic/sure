@@ -15,22 +15,26 @@ const Overview = (props:Props) => {
 
   const [deductible, setDeductible] = useState(selectedDeductible);
   const [asteroidCollision, setAsteroidCollision] = useState(selectedAsteroidCollision);
+  const [initialRender, setInitialRender] = useState(true);
 
   useEffect(() => {
-    const { quoteId, policy_holder, rating_address } = quote;
-    const fields: QuoteUpdateFieldsType = {
-      quote: {
-        quoteId,
-        policy_holder,
-        rating_address,
-        variable_selections: {
-          deductible,
-          asteroid_collision: asteroidCollision,
+    if (initialRender) {
+      setInitialRender(false);
+    } else {
+      const { quoteId, policy_holder, rating_address } = quote;
+      const fields: QuoteUpdateFieldsType = {
+        quote: {
+          quoteId,
+          policy_holder,
+          rating_address,
+          variable_selections: {
+            deductible,
+            asteroid_collision: asteroidCollision,
+          },
         },
-      },
-    };
-
-    updateQuote(fields);
+      };
+      updateQuote(fields);
+    }
   }, [deductible, asteroidCollision]);
 
   return (
@@ -96,7 +100,7 @@ const OptionGroup = styled.div`
 `;
 
 const OptionSelect = styled.select`
+  border-radius: 5px;
   padding: 5px;
   width: 100%;
-  border-radius: 5px;
 `;

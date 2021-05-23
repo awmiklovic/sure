@@ -1,56 +1,37 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
+import ApiHandler from './ApiHandler';
 import RatingInformation from './screens/RatingInformation';
 import Overview from './screens/Overview';
 import Space from './assets/space.png';
-
-const API_URL = 'https://fed-challenge-api.sure.now.sh/api/v1/quotes';
 
 const App = () => {
   const [quote, setQuote] = useState(null);
   const [errors, setErrors] = useState(null);
 
-  const createQuote = async (fields: QuoteCreateFieldsType) => {
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(fields),
-    };
+  const apiHandler = new ApiHandler();
 
-    const resp = await fetch(API_URL, options);
-    const json: QuoteResponseType = await resp.json();
+  const handleCreateQuote = async (fields: QuoteCreateFieldsType) => {
+    const resp = await apiHandler.postQuote(fields);
 
-    if (json.quote) {
-      setQuote(json.quote);
-    }
-
-    if (json.errors) {
-      setErrors(json.errors);
+    if (resp.errors) {
+      setErrors(resp.errors);
+    } else if (resp.quote) {
+      setQuote(resp.quote);
     }
   };
 
-  const updateQuote = async (fields: QuoteUpdateFieldsType) => {
-    const options = {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(fields),
-    };
+  const handleUpdateQuote = async (fields: QuoteUpdateFieldsType) => {
+    const resp = await apiHandler.updateQuote(fields);
 
-    const resp = await fetch(`${API_URL}/${fields.quote.quoteId}`, options);
-    const json: QuoteResponseType = await resp.json();
-
-    if (json.quote) {
-      setQuote(json.quote);
+    if (resp.quote) {
+      setQuote(resp.quote);
     }
   };
 
   const ActiveScreen = quote
-    ? <Overview quote={quote} updateQuote={updateQuote} />
-    : <RatingInformation errors={errors} createQuote={createQuote} />;
+    ? <Overview quote={quote} updateQuote={handleUpdateQuote} />
+    : <RatingInformation errors={errors} createQuote={handleCreateQuote} />;
 
   return (
     <Container>
@@ -64,24 +45,24 @@ const App = () => {
 export default App;
 
 const Container = styled.div`
+  align-items: center;
   background-image: url(${Space});
   background-size: cover;
-  width: 100vw;
-  height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
 `;
 
 const Content = styled.div`
   background: #f2f2f2;
+  border-radius: 5px;
+  border: solid 1px #222;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 500px;
-  border: solid 1px #222;
-  border-radius: 5px;
-  padding: 15px;
   justify-content: space-between;
+  padding: 15px;
+  width: 500px;
 `;

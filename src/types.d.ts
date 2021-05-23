@@ -29,7 +29,7 @@ type VariableSelections = {
     asteroid_collision: number
 }
 
-type QuoteType = PolicyHolderType & {
+type QuoteType = {
     quoteId: string,
     policy_holder: PolicyHolderType,
     rating_address: RatingAddressType,

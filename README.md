@@ -1,31 +1,44 @@
 # Sure Frontend Technical Challenge
 
-This project can be viewed at [Create React App](https://github.com/facebook/create-react-app).
+This is my solution for the Sure Frontend Technical Challenge. [Live Demo](https://zen-curran-b9f88d.netlify.app/).
 
-## Setup
+## `Running Locally`
 
-`npm install`
-`npm start`
+```
+git clone https://github.com/awmiklovic/sure.git
+npm ci
+npm start
+```
 
-### `npm start`
+## `Testing and Linting`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
+npm lint
+npm test
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+or 
 
-### `npm test`
+`make ready`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To ensure that all merges into `main` branch pass testing and linting, run:
 
-### `npm run build`
+`make hook`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This will set up a prepush script that automatically runs:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+npm lint
+npm test
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## `Deployment`
+
+This repository is connected to a CI/CD pipeline in Netlify. Updates to main will deploy a new build.
+
+## `Roadmap`
+
+Given additional time, I would like to
+- Add more robust error handling to ApiHandler
+- Auto convert snake_case to camelcase in ApiHandler
+- Add custom Select component

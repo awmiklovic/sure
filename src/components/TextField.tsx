@@ -11,7 +11,7 @@ interface Props {
     fullWidth?: boolean;
 }
 
-const TextField = (props: Props): React.ReactElement => {
+const TextField = (props: Props) => {
   const {
     label, placeholder, onChange, value, fullWidth, error,
   } = props;
