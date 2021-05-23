@@ -14,8 +14,8 @@ npm start
 ## Testing and Linting
 
 ```
-npm lint
-npm test
+npm run lint
+npm run test
 ```
 
 or 
@@ -29,8 +29,8 @@ To ensure that all merges into `main` branch pass testing and linting, run:
 This will set up a prepush script that automatically runs:
 
 ```
-npm lint
-npm test
+npm run lint
+npm run test
 ```
 
 ## Deployment
