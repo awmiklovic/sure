@@ -4,9 +4,9 @@ This is my solution for the Sure Frontend Technical Challenge.
 
 [Live Demo](https://zen-curran-b9f88d.netlify.app/).
 
-The project was bootstrapped with `Create React App` and I'm using `@emotion/styled` for CSS.
+This project was setup with `Create React App` using the `typescript` template, and `@emotion/styled` for component styling.
 
-Please note - I also wrote some unit tests as well in `app.test.tsx`.
+Please note - there are some unit tests in `app.test.tsx`.
 
 ## Running Locally
 
