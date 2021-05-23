@@ -1,6 +1,12 @@
 # Sure Frontend Technical Challenge
 
-This is my solution for the Sure Frontend Technical Challenge. [Live Demo](https://zen-curran-b9f88d.netlify.app/).
+This is my solution for the Sure Frontend Technical Challenge.
+
+[Live Demo](https://zen-curran-b9f88d.netlify.app/).
+
+The project was bootstrapped with `Create React App` and I'm using `@emotion/styled` for CSS.
+
+Please note - I also wrote some unit tests as well in `app.test.tsx`.
 
 ## Running Locally
 
