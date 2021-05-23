@@ -40,6 +40,6 @@ This repository is connected to a CI/CD pipeline in Netlify. Updates to main wil
 ## `Roadmap`
 
 Given additional time, I would like to
-- Add more robust error handling to ApiHandler
-- Auto convert snake_case to camelcase in ApiHandler
-- Add custom Select component
+- Add more robust error handling to `ApiHandler.ts`
+- Auto convert snake_case to camelCase in `ApiHandler.ts`
+- Add custom `<Select />` component
