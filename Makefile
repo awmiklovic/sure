@@ -6,7 +6,7 @@ hook:
 
 ready:
 	npm run lint
-	npm run test
+	npm run test -- --watchAll=false
 
 prepush:
 ifeq ($(strip $(shell git status --porcelain 2>/dev/null)),)
